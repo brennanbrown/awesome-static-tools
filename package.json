@@ -1,0 +1,15 @@
+{
+  "name": "awesome-static-tools",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve",
+    "clean": "rm -rf _site",
+    "icons": "node scripts/generate-icons.mjs"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "sharp": "^0.33.3"
+  }
+}
