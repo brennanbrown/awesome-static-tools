@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title or 'Awesome Static Tools' }}</title>
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon-180.png">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  {% block head %}{% endblock %}
+</head>
+<body>
+  <header class="site-header">
+    <div class="container bar">
+      <h1 class="title">{{ title or 'Awesome Static Tools' }}</h1>
+      <nav class="nav">
+        <a class="nav-link" href="/">Home</a>
+        <a class="nav-link" href="/demo/">Combined Demo</a>
+        <a class="nav-link" href="https://github.com/brennanbrown/awesome-static-tools">GitHub</a>
+        <a class="nav-link" href="https://github.com/brennanbrown/awesome-static-tools/tree/main/docs">Docs</a>
+      </nav>
+      <button id="themeToggle" class="btn" aria-label="Toggle dark mode">Toggle Theme</button>
+    </div>
+  </header>
+
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container inner" align="center">
+      <p><strong>Support This Project</strong></p>
+      <p>
+        <a href="https://ko-fi.com/brennan"><img alt="Ko-fi" src="https://img.shields.io/badge/Ko--fi-F16061?style=for-the-badge&logo=ko-fi&logoColor=white"/></a>
+        <a href="https://www.patreon.com/cw/brennankbrown"><img alt="Patreon" src="https://img.shields.io/badge/Patreon-F96854?style=for-the-badge&logo=patreon&logoColor=white"/></a>
+        <a href="https://github.com/sponsors/brennanbrown"><img alt="GitHub Sponsors" src="https://img.shields.io/badge/GitHub_Sponsors-EA4AAA?style=for-the-badge&logo=github-sponsors&logoColor=white"/></a>
+      </p>
+      <p>Every contribution—no matter the size—makes a meaningful difference. Thank you for believing in a more accessible, equitable web. 🍓</p>
+    </div>
+  </footer>
+
+  <script>
+    const root = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved) root.setAttribute('data-theme', saved);
+    document.getElementById('themeToggle')?.addEventListener('click', () => {
+      const current = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', current);
+      localStorage.setItem('theme', current);
+    });
+  </script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>
