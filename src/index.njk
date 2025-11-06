@@ -4,25 +4,24 @@ title: Awesome Static Tools • JAMstack Showcase
 description: A single-page showcase of lightweight, JAMstack-friendly tools with live examples you can copy-paste.
 image: /assets/favicon-180.png
 ---
-{% block head %}
-  <!-- Minimal CDN scripts used across sections -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
-  <script defer src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script defer src="https://unpkg.com/medium-zoom@1.1.0/dist/medium-zoom.min.js"></script>
-  <script defer src="https://unpkg.com/mark.js@8.11.1/dist/mark.min.js"></script>
-  <script defer src="https://unpkg.com/fuse.js@6.6.2/dist/fuse.min.js"></script>
-  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-  <script defer src="https://unpkg.com/sal.js@0.8.5/dist/sal.js"></script>
-  <link rel="stylesheet" href="https://unpkg.com/sal.js@0.8.5/dist/sal.css">
-  <script defer src="https://unpkg.com/scroll-out/dist/scroll-out.min.js"></script>
-  <link rel="stylesheet" href="https://unpkg.com/littlefoot/dist/littlefoot.css">
-  <script defer src="https://unpkg.com/littlefoot/dist/littlefoot.js"></script>
-  <script defer src="https://unpkg.com/prismjs@1.29.0/prism.js"></script>
-  <link rel="stylesheet" href="https://unpkg.com/prismjs@1.29.0/themes/prism.min.css">
-  <script defer src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
-  <link rel="stylesheet" href="https://unpkg.com/photoswipe@5/dist/photoswipe.css">
-  <script defer src="https://cusdis.com/js/cusdis.es.js"></script>
-  <script defer>
+<!-- Minimal CDN scripts/styles used across sections (in-body for simplicity) -->
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+<script defer src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script defer src="https://unpkg.com/medium-zoom@1.1.0/dist/medium-zoom.min.js"></script>
+<script defer src="https://unpkg.com/mark.js@8.11.1/dist/mark.min.js"></script>
+<script defer src="https://unpkg.com/fuse.js@6.6.2/dist/fuse.min.js"></script>
+<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<script defer src="https://unpkg.com/sal.js@0.8.5/dist/sal.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/sal.js@0.8.5/dist/sal.css">
+<script defer src="https://unpkg.com/scroll-out/dist/scroll-out.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/littlefoot/dist/littlefoot.css">
+<script defer src="https://unpkg.com/littlefoot/dist/littlefoot.js"></script>
+<script defer src="https://unpkg.com/prismjs@1.29.0/prism.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/prismjs@1.29.0/themes/prism.min.css">
+<script defer src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/photoswipe@5/dist/photoswipe.css">
+<script defer src="https://cusdis.com/js/cusdis.es.js"></script>
+<script defer>
     document.addEventListener('DOMContentLoaded', () => {
       if (window.AOS) AOS.init({ once: true });
       if (window.sal) sal();
@@ -45,7 +44,7 @@ image: /assets/favicon-180.png
       }
     });
   </script>
-  <script type="module">
+<script type="module">
     import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe@5/dist/photoswipe-lightbox.esm.min.js';
     const lightbox = new PhotoSwipeLightbox({
       gallery: '[data-pswp-gallery]',
@@ -54,7 +53,7 @@ image: /assets/favicon-180.png
     });
     lightbox.init();
   </script>
-  <script>
+<script>
     // Minimal lettering demo without external deps
     document.addEventListener('DOMContentLoaded', () => {
       const el = document.getElementById('lettering');
@@ -77,13 +76,36 @@ image: /assets/favicon-180.png
       });
     });
   </script>
-{% endblock %}
 
 <section id="features">
   <h2>JAMstack Showcase</h2>
   <p>This single page demonstrates lightweight, client‑side tools you can drop into any Eleventy or static site. The focus is performance, accessibility, and copy‑paste simplicity—hallmarks of the JAMstack approach.</p>
 </section>
 
+<section id="all-demos">
+  <h3>All Demos (inline)</h3>
+  <p class="muted">Each demo below is embedded from its own route for clarity. This keeps each example self-contained while presenting everything on one page.</p>
+  <div class="grid">
+    <div class="card"><h4>Rough Notation</h4><iframe title="Rough Notation" src="/demos/rough-notation/" loading="lazy" style="width:100%;height:420px;border:0;border-radius:.6rem;"></iframe></div>
+    <div class="card"><h4>Mark.js</h4><iframe title="Mark.js" src="/demos/markjs/" loading="lazy" style="width:100%;height:420px;border:0;border-radius:.6rem;"></iframe></div>
+    <div class="card"><h4>Littlefoot</h4><iframe title="Littlefoot" src="/demos/littlefoot/" loading="lazy" style="width:100%;height:420px;border:0;border-radius:.6rem;"></iframe></div>
+    <div class="card"><h4>Tufte CSS</h4><iframe title="Tufte CSS" src="/demos/tufte-css/" loading="lazy" style="width:100%;height:420px;border:0;border-radius:.6rem;"></iframe></div>
+    <div class="card"><h4>Tippy.js</h4><iframe title="Tippy.js" src="/demos/tippyjs/" loading="lazy" style="width:100%;height:420px;border:0;border-radius:.6rem;"></iframe></div>
+    <div class="card"><h4>Fuse.js</h4><iframe title="Fuse.js" src="/demos/fusejs/" loading="lazy" style="width:100%;height:420px;border:0;border-radius:.6rem;"></iframe></div>
+    <div class="card"><h4>Alpine.js</h4><iframe title="Alpine.js" src="/demos/alpinejs/" loading="lazy" style="width:100%;height:420px;border:0;border-radius:.6rem;"></iframe></div>
+    <div class="card"><h4>AOS</h4><iframe title="AOS" src="/demos/aos/" loading="lazy" style="width:100%;height:420px;border:0;border-radius:.6rem;"></iframe></div>
+    <div class="card"><h4>Sal.js</h4><iframe title="Sal.js" src="/demos/saljs/" loading="lazy" style="width:100%;height:420px;border:0;border-radius:.6rem;"></iframe></div>
+    <div class="card"><h4>Scroll-Out</h4><iframe title="Scroll-Out" src="/demos/scroll-out/" loading="lazy" style="width:100%;height:420px;border:0;border-radius:.6rem;"></iframe></div>
+    <div class="card"><h4>Reading Progress</h4><iframe title="Reading Progress" src="/demos/reading-progress/" loading="lazy" style="width:100%;height:420px;border:0;border-radius:.6rem;"></iframe></div>
+    <div class="card"><h4>Reading Time</h4><iframe title="Reading Time" src="/demos/reading-time/" loading="lazy" style="width:100%;height:420px;border:0;border-radius:.6rem;"></iframe></div>
+    <div class="card"><h4>medium-zoom</h4><iframe title="medium-zoom" src="/demos/medium-zoom/" loading="lazy" style="width:100%;height:420px;border:0;border-radius:.6rem;"></iframe></div>
+    <div class="card"><h4>PhotoSwipe</h4><iframe title="PhotoSwipe" src="/demos/photoswipe/" loading="lazy" style="width:100%;height:420px;border:0;border-radius:.6rem;"></iframe></div>
+    <div class="card"><h4>Prism.js</h4><iframe title="Prism.js" src="/demos/prismjs/" loading="lazy" style="width:100%;height:420px;border:0;border-radius:.6rem;"></iframe></div>
+    <div class="card"><h4>Mermaid</h4><iframe title="Mermaid" src="/demos/mermaid/" loading="lazy" style="width:100%;height:420px;border:0;border-radius:.6rem;"></iframe></div>
+    <div class="card"><h4>Web Share API</h4><iframe title="Web Share API" src="/demos/web-share/" loading="lazy" style="width:100%;height:420px;border:0;border-radius:.6rem;"></iframe></div>
+    <div class="card"><h4>Dark Mode</h4><iframe title="Dark Mode" src="/demos/dark-mode/" loading="lazy" style="width:100%;height:420px;border:0;border-radius:.6rem;"></iframe></div>
+  </div>
+</section>
 <section id="comments">
   <h3>Comments (Cusdis)</h3>
   <div id="cusdis_thread"

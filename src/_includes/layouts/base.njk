@@ -31,7 +31,6 @@
   <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon-180.png">
   <link rel="stylesheet" href="/assets/css/site.css">
-  {% block head %}{% endblock %}
 </head>
 <body>
   <header class="site-header">
@@ -39,18 +38,11 @@
       <h1 class="title">{{ title or 'Awesome Static Tools' }}</h1>
       <nav class="nav">
         <a class="nav-link" href="/">Home</a>
-        <a class="nav-link" href="/#features">Features</a>
-        <a class="nav-link" href="/#text">Text</a>
-        <a class="nav-link" href="/#tooltips">Tooltips</a>
-        <a class="nav-link" href="/#search">Search</a>
-        <a class="nav-link" href="/#interactivity">Interactivity</a>
-        <a class="nav-link" href="/#scroll">Scroll</a>
-        <a class="nav-link" href="/#typography">Typography</a>
+        <a class="nav-link" href="/#features">Overview</a>
         <a class="nav-link" href="/#media">Media</a>
         <a class="nav-link" href="/#gallery">Gallery</a>
-        <a class="nav-link" href="/#share">Share</a>
+        <a class="nav-link" href="/#search">Search</a>
         <a class="nav-link" href="/#comments">Comments</a>
-        <a class="nav-link" href="https://github.com/brennanbrown/awesome-static-tools/tree/main/docs">Docs</a>
         <a class="nav-link" href="https://github.com/brennanbrown/awesome-static-tools">GitHub</a>
       </nav>
       <button id="themeToggle" class="btn" aria-label="Toggle dark mode">Toggle Theme</button>
@@ -58,7 +50,7 @@
   </header>
 
   <main class="container">
-    {% block content %}{% endblock %}
+    {{ content | safe }}
   </main>
 
   <footer class="site-footer">
