@@ -5,14 +5,4 @@
     <p>Scroll this container to see the bar grow. The JAMstack emphasizes pre-rendering and progressive enhancement.</p>
     <p style="height:400px"></p>
   </article>
-  <script>
-    (function(){
-      const bar=document.getElementById('rp-bar');
-      const el=document.getElementById('rp-content');
-      el.addEventListener('scroll',()=>{
-        const p=el.scrollTop/(el.scrollHeight-el.clientHeight);
-        bar.style.width=(p*100)+'%';
-      });
-    })();
-  </script>
 </section>

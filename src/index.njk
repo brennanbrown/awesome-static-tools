@@ -50,8 +50,32 @@ description: Simple, copy‑paste demos of lightweight client‑side tools for s
   {% include "demos/prismjs.njk" %}
   {% include "demos/mermaid.njk" %}
   {% include "demos/web-share.njk" %}
-  {% include "demos/dark-mode.njk" %}
   {% include "demos/lettering.njk" %}
   {% include "demos/eleventy-image.njk" %}
 </section>
+
+<script>
+  // Reading Time (counts words inside #rt-article)
+  (function(){
+    const art = document.getElementById('rt-article');
+    const out = document.getElementById('rt');
+    if (art && out) {
+      const words = art.textContent.trim().split(/\s+/).length;
+      const min = Math.max(1, Math.round(words / 200));
+      out.textContent = min + ' min';
+    }
+  })();
+
+  // Reading Progress (tracks scroll within #rp-content)
+  (function(){
+    const bar = document.getElementById('rp-bar');
+    const el = document.getElementById('rp-content');
+    if (bar && el) {
+      el.addEventListener('scroll', () => {
+        const p = el.scrollTop / (el.scrollHeight - el.clientHeight);
+        bar.style.width = (p * 100) + '%';
+      }, { passive: true });
+    }
+  })();
+</script>
 

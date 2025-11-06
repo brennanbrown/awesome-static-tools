@@ -44,7 +44,7 @@
         <a class="nav-link" href="/#demo-fusejs">Search</a>
         <a class="nav-link" href="https://github.com/brennanbrown/awesome-static-tools">GitHub</a>
       </nav>
-      
+      <button id="themeToggle" class="btn" aria-label="Toggle dark mode">Toggle Theme</button>
     </div>
   </header>
 
@@ -65,15 +65,18 @@
   </footer>
 
   <script>
-    const root = document.documentElement;
-    const saved = localStorage.getItem('theme');
-    if (saved) root.setAttribute('data-theme', saved);
-    document.getElementById('themeToggle')?.addEventListener('click', () => {
-      const current = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      root.setAttribute('data-theme', current);
-      localStorage.setItem('theme', current);
-    });
+    (function(){
+      const root = document.documentElement;
+      const saved = localStorage.getItem('theme');
+      if (saved === 'dark') root.classList.add('dark');
+      const btn = document.getElementById('themeToggle');
+      if (btn) {
+        btn.addEventListener('click', () => {
+          const isDark = root.classList.toggle('dark');
+          localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+      }
+    })();
   </script>
-  {% block scripts %}{% endblock %}
 </body>
 </html>
