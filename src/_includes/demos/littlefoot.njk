@@ -4,5 +4,14 @@
   <div id="lf1" class="sr-only">This footnote is displayed as a popover.</div>
   <link rel="stylesheet" href="https://unpkg.com/littlefoot/dist/littlefoot.css">
   <script src="https://unpkg.com/littlefoot/dist/littlefoot.js"></script>
-  <script>window.littlefoot && window.littlefoot();</script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const fn = (window.littlefoot && typeof window.littlefoot === 'function')
+        ? window.littlefoot
+        : (window.littlefoot && typeof window.littlefoot.default === 'function')
+          ? window.littlefoot.default
+          : null;
+      if (fn) fn();
+    });
+  </script>
 </section>

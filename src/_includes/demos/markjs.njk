@@ -1,13 +1,15 @@
 <section id="demo-markjs">
   <h3>Mark.js</h3>
   <p>Type to highlight matches within the text.</p>
-  <input id="q" placeholder="Type to highlight..." class="input" />
+  <input id="markjs-q" placeholder="Type to highlight..." class="input" />
   <article id="markjs-content" class="prose" style="margin-top:.5rem">The JAMstack empowers fast, scalable sites. Try highlighting words like fast or sites.</article>
   <script src="https://unpkg.com/mark.js@8.11.1/dist/mark.min.js"></script>
   <script>
     (function(){
-      const instance = new Mark(document.getElementById('markjs-content'));
-      const q = document.getElementById('q');
+      const target = document.getElementById('markjs-content');
+      if (!target || !window.Mark) return;
+      const instance = new Mark(target);
+      const q = document.getElementById('markjs-q');
       function run(){ instance.unmark({ done: () => instance.mark(q.value) }); }
       q.addEventListener('input', () => requestAnimationFrame(run));
     })();

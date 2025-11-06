@@ -6,5 +6,9 @@
     <div class="card" data-scroll>Also reveals</div>
     <div class="card" data-scroll>And this one</div>
   </div>
-  <script>document.addEventListener('DOMContentLoaded',()=>window.ScrollOut&&ScrollOut({targets:'[data-scroll]'}));</script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.ScrollOut) ScrollOut({ targets: '#demo-scroll-out [data-scroll]' });
+    });
+  </script>
 </section>
