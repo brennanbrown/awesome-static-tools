@@ -28,6 +28,13 @@ description: Simple, copy‑paste demos of lightweight client‑side tools for s
   Tufte CSS is shown on a <a href="/tufte/">separate page</a> due to custom fonts.
 </p>
 
+<!-- Reading utilities near the top so they can measure content properly -->
+<section id="reading-utilities">
+  <h2>Reading Utilities</h2>
+  {% include "demos/reading-time.njk" %}
+  {% include "demos/reading-progress.njk" %}
+</section>
+
 <section id="demos">
   <h2>Demos</h2>
   {% include "demos/rough-notation.njk" %}
@@ -38,8 +45,6 @@ description: Simple, copy‑paste demos of lightweight client‑side tools for s
   {% include "demos/aos.njk" %}
   {% include "demos/saljs.njk" %}
   {% include "demos/scroll-out.njk" %}
-  {% include "demos/reading-progress.njk" %}
-  {% include "demos/reading-time.njk" %}
   {% include "demos/medium-zoom.njk" %}
   {% include "demos/photoswipe.njk" %}
   {% include "demos/prismjs.njk" %}
