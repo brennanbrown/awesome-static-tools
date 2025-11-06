@@ -1,0 +1,18 @@
+---
+layout: layouts/base.njk
+title: Scroll-Out
+---
+<p>Scroll to see CSS variables applied via Scroll-Out.</p>
+<div data-scroll class="panel">I move based on --scroll-percent</div>
+
+{% block head %}
+<style>
+  .panel { height: 200vh; display: grid; place-items: center; border: 1px solid #ddd; border-radius: 12px; }
+  [data-scroll] { transform: translateY(calc(var(--scroll-percent, 0) * 1px)); transition: transform .1s linear; }
+</style>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://unpkg.com/scroll-out/dist/scroll-out.min.js"></script>
+<script>ScrollOut();</script>
+{% endblock %}

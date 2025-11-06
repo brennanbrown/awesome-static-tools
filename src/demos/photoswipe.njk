@@ -1,0 +1,27 @@
+---
+layout: layouts/base.njk
+title: PhotoSwipe
+---
+<p>Click the thumbnail to open the PhotoSwipe gallery.</p>
+
+<div id="gallery">
+  <a href="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1600&q=80" data-pswp-width="1600" data-pswp-height="1067" target="_blank">
+    <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=400&q=60" alt="Mountains" style="max-width:100%;border-radius:8px"/>
+  </a>
+</div>
+
+{% block head %}
+<link rel="stylesheet" href="https://unpkg.com/photoswipe@5/dist/photoswipe.css">
+{% endblock %}
+
+{% block scripts %}
+<script type="module">
+  import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe@5/dist/photoswipe-lightbox.esm.min.js';
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: '#gallery',
+    children: 'a',
+    pswpModule: () => import('https://unpkg.com/photoswipe@5/dist/photoswipe.esm.min.js')
+  });
+  lightbox.init();
+</script>
+{% endblock %}

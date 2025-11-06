@@ -1,0 +1,19 @@
+---
+layout: layouts/base.njk
+title: Littlefoot
+---
+<p>This is a sentence with a footnote.<sup id="fnref-1"><a href="#fn-1">1</a></sup></p>
+<ol class="footnotes-list">
+  <li id="fn-1" class="footnote-item">This is the footnote content. <a href="#fnref-1" class="footnote-backref">↩</a></li>
+</ol>
+
+{% block head %}
+<link rel="stylesheet" href="https://unpkg.com/littlefoot/dist/littlefoot.css">
+<script src="https://unpkg.com/littlefoot/dist/littlefoot.js"></script>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  littlefoot();
+</script>
+{% endblock %}

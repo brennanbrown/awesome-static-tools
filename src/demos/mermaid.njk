@@ -1,0 +1,19 @@
+---
+layout: layouts/base.njk
+title: Mermaid
+---
+<div class="mermaid">
+  graph TD
+      A[Start] --> B{Decision?}
+      B -->|Yes| C[Do Something]
+      B -->|No| D[Do Something Else]
+</div>
+
+{% block head %}
+<style>.mermaid{border:1px solid #ddd;border-radius:8px;padding:1rem}</style>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'default' });</script>
+{% endblock %}

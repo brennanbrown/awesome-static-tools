@@ -1,0 +1,14 @@
+---
+layout: layouts/base.njk
+title: Alpine.js
+---
+<p>Alpine lets you add small interactive behaviors directly in your markup.</p>
+
+<div x-data="{ open: false }" x-init>
+  <button class="btn" @click="open = !open">Toggle</button>
+  <p x-show="open" x-transition>Now you see me!</p>
+</div>
+
+{% block scripts %}
+<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+{% endblock %}

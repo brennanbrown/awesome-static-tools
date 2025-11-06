@@ -1,0 +1,18 @@
+---
+layout: layouts/base.njk
+title: Rough Notation
+---
+<p>Hand-drawn style annotations.</p>
+<p id="note">This text will be <strong>highlighted</strong> with a sketchy effect.</p>
+
+{% block head %}
+<script src="https://unpkg.com/rough-notation/lib/rough-notation.iife.js"></script>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  const { annotate } = RoughNotation;
+  const a = annotate(document.getElementById('note'), { type: 'highlight', color: 'yellow' });
+  a.show();
+</script>
+{% endblock %}
