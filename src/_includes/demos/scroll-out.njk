@@ -1,0 +1,10 @@
+<section id="demo-scroll-out">
+  <h3>Scroll-Out</h3>
+  <script src="https://unpkg.com/scroll-out/dist/scroll-out.min.js"></script>
+  <div class="grid">
+    <div class="card" data-scroll>Reveal on scroll</div>
+    <div class="card" data-scroll>Also reveals</div>
+    <div class="card" data-scroll>And this one</div>
+  </div>
+  <script>document.addEventListener('DOMContentLoaded',()=>window.ScrollOut&&ScrollOut({targets:'[data-scroll]'}));</script>
+</section>

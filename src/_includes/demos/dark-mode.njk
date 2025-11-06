@@ -1,0 +1,14 @@
+<section id="demo-dark-mode">
+  <h3>Dark Mode</h3>
+  <button class="btn" id="dm-toggle">Toggle Dark Mode</button>
+  <script>
+    (function(){
+      const btn=document.getElementById('dm-toggle');
+      btn.addEventListener('click',()=>{
+        const d=document.documentElement;
+        const dark=d.classList.toggle('dark');
+        localStorage.setItem('theme', dark? 'dark':'light');
+      });
+    })();
+  </script>
+</section>

@@ -1,0 +1,10 @@
+<section id="demo-mermaid">
+  <h3>Mermaid</h3>
+  <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+  <pre class="mermaid">graph TD;
+    A[Jamstack]-->B[Eleventy];
+    A-->C[CDN];
+    B-->D[Templates];
+  </pre>
+  <script>document.addEventListener('DOMContentLoaded',()=>window.mermaid&&mermaid.initialize({startOnLoad:true}));</script>
+</section>

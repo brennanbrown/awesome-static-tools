@@ -1,0 +1,6 @@
+<section id="demo-cusdis">
+  <h3>Cusdis (Comments)</h3>
+  <div id="cusdis_thread" data-host="https://cusdis.com" data-app-id="{{ cusdis_app_id or '' }}" data-page-id="home" data-page-url="{{ siteUrl or '' }}/" data-page-title="Awesome Static Tools"></div>
+  <script src="https://cusdis.com/js/cusdis.es.js"></script>
+  {% if not cusdis_app_id %}<p class="muted">Set <code>cusdis_app_id</code> to enable.</p>{% endif %}
+</section>

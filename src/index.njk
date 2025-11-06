@@ -1,202 +1,47 @@
 ---
 layout: layouts/base.njk
 title: Awesome Static Tools • JAMstack Showcase
-description: A single-page showcase of lightweight, JAMstack-friendly tools with live examples you can copy-paste.
-image: /assets/favicon-180.png
+description: Simple, copy‑paste demos of lightweight client‑side tools for static sites. All examples render inline on one page.
 ---
-<!-- Minimal CDN scripts/styles used across sections (in-body for simplicity) -->
-<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
-<script defer src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-<script defer src="https://unpkg.com/medium-zoom@1.1.0/dist/medium-zoom.min.js"></script>
-<script defer src="https://unpkg.com/mark.js@8.11.1/dist/mark.min.js"></script>
-<script defer src="https://unpkg.com/fuse.js@6.6.2/dist/fuse.min.js"></script>
-<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-<script defer src="https://unpkg.com/sal.js@0.8.5/dist/sal.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/sal.js@0.8.5/dist/sal.css">
-<script defer src="https://unpkg.com/scroll-out/dist/scroll-out.min.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/littlefoot/dist/littlefoot.css">
-<script defer src="https://unpkg.com/littlefoot/dist/littlefoot.js"></script>
-<script defer src="https://unpkg.com/prismjs@1.29.0/prism.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/prismjs@1.29.0/themes/prism.min.css">
-<script defer src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/photoswipe@5/dist/photoswipe.css">
-<script defer src="https://cusdis.com/js/cusdis.es.js"></script>
-<script defer>
-    document.addEventListener('DOMContentLoaded', () => {
-      if (window.AOS) AOS.init({ once: true });
-      if (window.sal) sal();
-      if (window.ScrollOut) ScrollOut({ targets: '[data-so]'});
-      if (window.mediumZoom) mediumZoom('[data-zoom]');
-      if (window.littlefoot) window.littlefoot();
-      if (window.mermaid) window.mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
-      const fuseTarget = document.querySelector('#searchList');
-      const fuseInput = document.querySelector('#searchInput');
-      if (fuseTarget && fuseInput && window.Fuse) {
-        const items = [...fuseTarget.querySelectorAll('li')].map(li => ({ text: li.textContent.trim(), el: li }));
-        const fuse = new Fuse(items, { keys: ['text'], threshold: 0.3 });
-        const filter = () => {
-          const q = fuseInput.value.trim();
-          const results = q ? fuse.search(q).map(r => r.item.el) : items.map(i => i.el);
-          items.forEach(i => i.el.style.display = 'none');
-          results.forEach(el => el.style.display = 'list-item');
-        };
-        fuseInput.addEventListener('input', filter);
-      }
-    });
-  </script>
-<script type="module">
-    import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe@5/dist/photoswipe-lightbox.esm.min.js';
-    const lightbox = new PhotoSwipeLightbox({
-      gallery: '[data-pswp-gallery]',
-      children: 'a',
-      pswpModule: () => import('https://unpkg.com/photoswipe@5/dist/photoswipe.esm.min.js')
-    });
-    lightbox.init();
-  </script>
-<script>
-    // Minimal lettering demo without external deps
-    document.addEventListener('DOMContentLoaded', () => {
-      const el = document.getElementById('lettering');
-      if (!el) return;
-      const text = el.textContent;
-      el.innerHTML = '';
-      [...text].forEach((ch, i) => {
-        const span = document.createElement('span');
-        span.textContent = ch;
-        span.style.display = 'inline-block';
-        span.style.marginRight = '1px';
-        span.style.transition = 'transform .2s ease';
-        el.appendChild(span);
-      });
-      el.addEventListener('mouseover', (e) => {
-        if (e.target.tagName === 'SPAN') e.target.style.transform = 'translateY(-2px)';
-      });
-      el.addEventListener('mouseout', (e) => {
-        if (e.target.tagName === 'SPAN') e.target.style.transform = 'none';
-      });
-    });
-  </script>
 
-<section id="features">
-  <h2>JAMstack Showcase</h2>
-  <p>This single page demonstrates lightweight, client‑side tools you can drop into any Eleventy or static site. The focus is performance, accessibility, and copy‑paste simplicity—hallmarks of the JAMstack approach.</p>
-</section>
-
-<section id="all-demos">
-  <h3>All Demos (inline)</h3>
-  <p class="muted">Each demo below is embedded from its own route for clarity. This keeps each example self-contained while presenting everything on one page.</p>
-  <div class="grid">
-    <div class="card"><h4>Rough Notation</h4><iframe title="Rough Notation" src="/demos/rough-notation/" loading="lazy" style="width:100%;height:420px;border:0;border-radius:.6rem;"></iframe></div>
-    <div class="card"><h4>Mark.js</h4><iframe title="Mark.js" src="/demos/markjs/" loading="lazy" style="width:100%;height:420px;border:0;border-radius:.6rem;"></iframe></div>
-    <div class="card"><h4>Littlefoot</h4><iframe title="Littlefoot" src="/demos/littlefoot/" loading="lazy" style="width:100%;height:420px;border:0;border-radius:.6rem;"></iframe></div>
-    <div class="card"><h4>Tufte CSS</h4><iframe title="Tufte CSS" src="/demos/tufte-css/" loading="lazy" style="width:100%;height:420px;border:0;border-radius:.6rem;"></iframe></div>
-    <div class="card"><h4>Tippy.js</h4><iframe title="Tippy.js" src="/demos/tippyjs/" loading="lazy" style="width:100%;height:420px;border:0;border-radius:.6rem;"></iframe></div>
-    <div class="card"><h4>Fuse.js</h4><iframe title="Fuse.js" src="/demos/fusejs/" loading="lazy" style="width:100%;height:420px;border:0;border-radius:.6rem;"></iframe></div>
-    <div class="card"><h4>Alpine.js</h4><iframe title="Alpine.js" src="/demos/alpinejs/" loading="lazy" style="width:100%;height:420px;border:0;border-radius:.6rem;"></iframe></div>
-    <div class="card"><h4>AOS</h4><iframe title="AOS" src="/demos/aos/" loading="lazy" style="width:100%;height:420px;border:0;border-radius:.6rem;"></iframe></div>
-    <div class="card"><h4>Sal.js</h4><iframe title="Sal.js" src="/demos/saljs/" loading="lazy" style="width:100%;height:420px;border:0;border-radius:.6rem;"></iframe></div>
-    <div class="card"><h4>Scroll-Out</h4><iframe title="Scroll-Out" src="/demos/scroll-out/" loading="lazy" style="width:100%;height:420px;border:0;border-radius:.6rem;"></iframe></div>
-    <div class="card"><h4>Reading Progress</h4><iframe title="Reading Progress" src="/demos/reading-progress/" loading="lazy" style="width:100%;height:420px;border:0;border-radius:.6rem;"></iframe></div>
-    <div class="card"><h4>Reading Time</h4><iframe title="Reading Time" src="/demos/reading-time/" loading="lazy" style="width:100%;height:420px;border:0;border-radius:.6rem;"></iframe></div>
-    <div class="card"><h4>medium-zoom</h4><iframe title="medium-zoom" src="/demos/medium-zoom/" loading="lazy" style="width:100%;height:420px;border:0;border-radius:.6rem;"></iframe></div>
-    <div class="card"><h4>PhotoSwipe</h4><iframe title="PhotoSwipe" src="/demos/photoswipe/" loading="lazy" style="width:100%;height:420px;border:0;border-radius:.6rem;"></iframe></div>
-    <div class="card"><h4>Prism.js</h4><iframe title="Prism.js" src="/demos/prismjs/" loading="lazy" style="width:100%;height:420px;border:0;border-radius:.6rem;"></iframe></div>
-    <div class="card"><h4>Mermaid</h4><iframe title="Mermaid" src="/demos/mermaid/" loading="lazy" style="width:100%;height:420px;border:0;border-radius:.6rem;"></iframe></div>
-    <div class="card"><h4>Web Share API</h4><iframe title="Web Share API" src="/demos/web-share/" loading="lazy" style="width:100%;height:420px;border:0;border-radius:.6rem;"></iframe></div>
-    <div class="card"><h4>Dark Mode</h4><iframe title="Dark Mode" src="/demos/dark-mode/" loading="lazy" style="width:100%;height:420px;border:0;border-radius:.6rem;"></iframe></div>
-  </div>
-</section>
-<section id="comments">
-  <h3>Comments (Cusdis)</h3>
-  <div id="cusdis_thread"
-    data-host="https://cusdis.com"
-    data-app-id="{{ cusdis_app_id or '' }}"
-    data-page-id="home"
-    data-page-url="{{ siteUrl or '' }}/"
-    data-page-title="Awesome Static Tools">
-  </div>
-  {% if not cusdis_app_id %}
-    <p class="muted">Set <code>cusdis_app_id</code> in your data or front matter to enable the embed.</p>
-  {% endif %}
-</section>
-
-<section id="media">
-  <h3>Images & Media</h3>
-  <div class="grid">
-    <figure class="card" data-aos="fade-up">
-      <img data-zoom src="https://placehold.co/800x500/png" alt="Placeholder" width="800" height="500" loading="lazy">
-      <figcaption>medium-zoom on click</figcaption>
-    </figure>
-    <figure class="card" data-so>
-      <img src="https://placehold.co/800x500/png" alt="Placeholder" width="800" height="500" loading="lazy">
-      <figcaption>Scroll-Out reveals on view</figcaption>
-    </figure>
-  </div>
-</section>
-
-<section id="gallery">
-  <h3>Gallery (PhotoSwipe)</h3>
-  <div class="grid" data-pswp-gallery>
-    <a href="https://placehold.co/1600x1000/png" data-pswp-width="1600" data-pswp-height="1000" class="card">
-      <img src="https://placehold.co/800x500/png" alt="Gallery image 1" width="800" height="500" loading="lazy">
-    </a>
-    <a href="https://placehold.co/1600x1000/png" data-pswp-width="1600" data-pswp-height="1000" class="card">
-      <img src="https://placehold.co/800x500/png" alt="Gallery image 2" width="800" height="500" loading="lazy">
-    </a>
-    <a href="https://placehold.co/1600x1000/png" data-pswp-width="1600" data-pswp-height="1000" class="card">
-      <img src="https://placehold.co/800x500/png" alt="Gallery image 3" width="800" height="500" loading="lazy">
-    </a>
-  </div>
-  <p class="muted">Click any image to open the lightbox.</p>
- </section>
-
-<section id="text">
-  <h3>Text Highlighting</h3>
-  <p id="markTarget">The JAMstack empowers developers to build fast sites that scale. Search, highlight, and enhance content without heavyweight frameworks.</p>
-  <button class="btn" onclick="new Mark(document.querySelector('#markTarget')).mark('fast')">Highlight "fast"</button>
-</section>
-
-<section id="tooltips">
-  <h3>Tooltips & Footnotes</h3>
-  <p>
-    <button class="btn has-tip" data-tip="Light, accessible UI hints.">Hover for tip</button>
-    <sup class="footnote" data-footnote-id="fn1">1</sup>
+<section id="overview">
+  <h2>Awesome Static Tools</h2>
+  <p class="prose">
+    This project is a curated set of <strong>tiny, copy‑paste enhancements</strong> for static sites and 11ty. It exists to help you add
+    useful interactions (search, tooltips, scroll effects, galleries, etc.) without heavy frameworks, build steps, or bloat—staying true
+    to the <strong>JAMstack</strong> values of performance, accessibility, and simplicity.
   </p>
-  <div class="sr-only" id="fn1">This is an inline footnote rendered via Littlefoot.</div>
-</section>
-
-<section id="search">
-  <h3>Search</h3>
-  <input id="searchInput" class="input" placeholder="Type to filter..." aria-label="Filter list" />
-  <ul id="searchList">
-    <li>Static site generators</li>
-    <li>Eleventy</li>
-    <li>JAMstack performance</li>
-    <li>Accessibility</li>
-    <li>Progressive enhancement</li>
+  <p class="prose">
+    On this page you’ll see <strong>inline demos</strong> of each tool, organized as small, reusable <strong>partials</strong>. Every demo shows the
+    minimal markup and initialization you need. You can:
+  </p>
+  <ul class="prose">
+    <li>Skim the examples and copy what you need.</li>
+    <li>Explore categories like media, search, interactivity, typography, and sharing.</li>
+    <li>Read deeper in the docs linked from the repository for options and accessibility notes.</li>
   </ul>
+  <p class="muted">Tip: Use these as starting points—compose a few to create rich pages while keeping bundle size low.</p>
 </section>
 
-<section id="interactivity" x-data="{ count: 0 }">
-  <h3>Interactivity</h3>
-  <p>Alpine.js powers small interactions without a build step.</p>
-  <button class="btn" @click="count++">Clicked <span x-text="count"></span> times</button>
-</section>
+{% include "demos/rough-notation.njk" %}
+{% include "demos/markjs.njk" %}
+{% include "demos/littlefoot.njk" %}
+{% include "demos/tufte-css.njk" %}
+{% include "demos/ez-tip.njk" %}
+{% include "demos/fusejs.njk" %}
+{% include "demos/alpinejs.njk" %}
+{% include "demos/aos.njk" %}
+{% include "demos/saljs.njk" %}
+{% include "demos/scroll-out.njk" %}
+{% include "demos/reading-progress.njk" %}
+{% include "demos/reading-time.njk" %}
+{% include "demos/medium-zoom.njk" %}
+{% include "demos/photoswipe.njk" %}
+{% include "demos/prismjs.njk" %}
+{% include "demos/mermaid.njk" %}
+{% include "demos/web-share.njk" %}
+{% include "demos/dark-mode.njk" %}
+{% include "demos/lettering.njk" %}
+{% include "demos/cusdis.njk" %}
+{% include "demos/eleventy-image.njk" %}
 
-<section id="scroll">
-  <h3>Scroll Effects</h3>
-  <p data-sal="zoom-in" data-sal-delay="200">Animate as you scroll with AOS or Sal.js.</p>
-</section>
-
-<section id="typography">
-  <h3>Typography & Code</h3>
-  <h4 id="lettering">Lettering Demo</h4>
-  <pre><code class="language-js">const msg = 'Hello JAMstack';
-console.log(msg);
-</code></pre>
-</section>
-
-<section id="share">
-  <h3>Share</h3>
-  <button class="btn" onclick="navigator.share && navigator.share({ title: 'Awesome Static Tools', text: 'Check out these JAMstack demos', url: location.href })">Share this page</button>
-</section>

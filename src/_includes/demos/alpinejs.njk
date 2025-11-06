@@ -1,0 +1,6 @@
+<section id="demo-alpinejs" x-data="{ n: 0 }">
+  <h3>Alpine.js</h3>
+  <p>Small interactions without a build step.</p>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <button class="btn" @click="n++">Clicked <span x-text="n"></span> times</button>
+</section>

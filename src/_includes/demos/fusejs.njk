@@ -1,0 +1,25 @@
+<section id="demo-fusejs">
+  <h3>Fuse.js (Fuzzy Search)</h3>
+  <script src="https://unpkg.com/fuse.js@6.6.2/dist/fuse.min.js"></script>
+  <input id="fuse-input" class="input" placeholder="Search..."/>
+  <ul id="fuse-list">
+    <li>Static site generators</li>
+    <li>Eleventy</li>
+    <li>JAMstack performance</li>
+    <li>Accessibility</li>
+    <li>Progressive enhancement</li>
+  </ul>
+  <script>
+    (function(){
+      const list=document.getElementById('fuse-list');
+      const items=[...list.querySelectorAll('li')].map(li=>({text:li.textContent,el:li}));
+      const fuse=new Fuse(items,{keys:['text'],threshold:.3});
+      document.getElementById('fuse-input').addEventListener('input',e=>{
+        const q=e.target.value.trim();
+        const res=q?fuse.search(q).map(r=>r.item.el):items.map(i=>i.el);
+        items.forEach(i=>i.el.style.display='none');
+        res.forEach(el=>el.style.display='list-item');
+      });
+    })();
+  </script>
+</section>

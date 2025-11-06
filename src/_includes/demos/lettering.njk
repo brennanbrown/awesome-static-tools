@@ -1,0 +1,13 @@
+<section id="demo-lettering">
+  <h3>Lettering</h3>
+  <h4 id="lettering">JAMstack</h4>
+  <script>
+    (function(){
+      const el=document.getElementById('lettering');
+      const t=el.textContent; el.innerHTML='';
+      [...t].forEach(ch=>{ const s=document.createElement('span'); s.textContent=ch; s.style.display='inline-block'; s.style.marginRight='1px'; s.style.transition='transform .2s'; el.appendChild(s); });
+      el.addEventListener('mouseover',e=>{ if(e.target.tagName==='SPAN') e.target.style.transform='translateY(-2px)'; });
+      el.addEventListener('mouseout',e=>{ if(e.target.tagName==='SPAN') e.target.style.transform='none'; });
+    })();
+  </script>
+</section>

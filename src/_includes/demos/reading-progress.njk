@@ -1,0 +1,18 @@
+<section id="demo-reading-progress">
+  <h3>Reading Progress</h3>
+  <div id="rp-bar" style="height:6px;background:var(--accent);width:0;border-radius:4px"></div>
+  <article id="rp-content" class="prose" style="margin-top:.5rem;max-width:70ch;">
+    <p>Scroll this container to see the bar grow. The JAMstack emphasizes pre-rendering and progressive enhancement.</p>
+    <p style="height:400px"></p>
+  </article>
+  <script>
+    (function(){
+      const bar=document.getElementById('rp-bar');
+      const el=document.getElementById('rp-content');
+      el.addEventListener('scroll',()=>{
+        const p=el.scrollTop/(el.scrollHeight-el.clientHeight);
+        bar.style.width=(p*100)+'%';
+      });
+    })();
+  </script>
+</section>

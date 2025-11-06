@@ -1,0 +1,12 @@
+<section id="demo-reading-time">
+  <h3>Reading Time</h3>
+  <article id="rt-article" class="prose">The JAMstack encourages performance and simplicity. Estimating reading time helps set user expectations.</article>
+  <p class="muted">Estimated reading time: <span id="rt"></span></p>
+  <script>
+    (function(){
+      const w=document.getElementById('rt-article').textContent.trim().split(/\s+/).length;
+      const min=Math.max(1,Math.round(w/200));
+      document.getElementById('rt').textContent=min+" min";
+    })();
+  </script>
+</section>
