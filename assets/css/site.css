@@ -53,6 +53,17 @@ footer img { vertical-align: middle; }
 .btn:focus-visible { outline: none; box-shadow: 0 0 0 4px var(--ring); }
 .btn.primary { background: var(--accent); color: var(--accent-fg); border-color: transparent; }
 
+/* Inputs */
+.input { display: inline-block; padding: .5rem .7rem; border-radius: .5rem; border: 1px solid var(--border); background: var(--card); color: var(--fg); }
+.input:focus { outline: none; box-shadow: 0 0 0 4px var(--ring); }
+
+/* Simple tooltip compatible with [data-tip] (works for ez-tip patterns) */
+.has-tip { position: relative; }
+.has-tip[data-tip]:hover::after,
+.has-tip[data-tip]:focus-visible::after { content: attr(data-tip); position: absolute; inset-inline-start: 50%; transform: translateX(-50%); bottom: calc(100% + 8px); background: var(--fg); color: var(--bg); padding: .35rem .5rem; border-radius: .4rem; white-space: nowrap; font-size: .85rem; z-index: 20; }
+.has-tip[data-tip]:hover::before,
+.has-tip[data-tip]:focus-visible::before { content: ""; position: absolute; inset-inline-start: 50%; transform: translateX(-50%); bottom: calc(100% + 4px); border: 6px solid transparent; border-top-color: var(--fg); }
+
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-top: 1rem; }
 .card { display: block; text-decoration: none; color: inherit; border: 1px solid var(--border); border-radius: .8rem; background: var(--card); padding: 1rem; transition: transform .12s ease, box-shadow .12s ease; }
 .card:hover { transform: translateY(-1px); box-shadow: 0 6px 18px -6px rgba(0,0,0,.2); }

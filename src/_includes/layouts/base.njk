@@ -4,6 +4,27 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ title or 'Awesome Static Tools' }}</title>
+  <meta name="description" content="{{ description or 'A curated collection of JAMstack-friendly enhancements and demos for fast, beautiful static sites.' }}">
+  <meta name="theme-color" content="#0f172a">
+  <link rel="canonical" href="{% if siteUrl %}{{ siteUrl }}{{ page.url }}{% else %}{{ page.url }}{% endif %}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Awesome Static Tools">
+  <meta property="og:title" content="{{ title or 'Awesome Static Tools' }}">
+  <meta property="og:description" content="{{ description or 'A curated collection of JAMstack-friendly enhancements and demos for fast, beautiful static sites.' }}">
+  {% if image %}<meta property="og:image" content="{{ image }}">{% endif %}
+  {% if siteUrl %}<meta property="og:url" content="{{ siteUrl }}{{ page.url }}">{% endif %}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ title or 'Awesome Static Tools' }}">
+  <meta name="twitter:description" content="{{ description or 'A curated collection of JAMstack-friendly enhancements and demos for fast, beautiful static sites.' }}">
+  {% if image %}<meta name="twitter:image" content="{{ image }}">{% endif %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Awesome Static Tools",
+    {% if siteUrl %}"url": "{{ siteUrl }}"{% else %}"url": "{{ page.url }}"{% endif %}
+  }
+  </script>
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
@@ -18,9 +39,19 @@
       <h1 class="title">{{ title or 'Awesome Static Tools' }}</h1>
       <nav class="nav">
         <a class="nav-link" href="/">Home</a>
-        <a class="nav-link" href="/demo/">Combined Demo</a>
-        <a class="nav-link" href="https://github.com/brennanbrown/awesome-static-tools">GitHub</a>
+        <a class="nav-link" href="/#features">Features</a>
+        <a class="nav-link" href="/#text">Text</a>
+        <a class="nav-link" href="/#tooltips">Tooltips</a>
+        <a class="nav-link" href="/#search">Search</a>
+        <a class="nav-link" href="/#interactivity">Interactivity</a>
+        <a class="nav-link" href="/#scroll">Scroll</a>
+        <a class="nav-link" href="/#typography">Typography</a>
+        <a class="nav-link" href="/#media">Media</a>
+        <a class="nav-link" href="/#gallery">Gallery</a>
+        <a class="nav-link" href="/#share">Share</a>
+        <a class="nav-link" href="/#comments">Comments</a>
         <a class="nav-link" href="https://github.com/brennanbrown/awesome-static-tools/tree/main/docs">Docs</a>
+        <a class="nav-link" href="https://github.com/brennanbrown/awesome-static-tools">GitHub</a>
       </nav>
       <button id="themeToggle" class="btn" aria-label="Toggle dark mode">Toggle Theme</button>
     </div>
