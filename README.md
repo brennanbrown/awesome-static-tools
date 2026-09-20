@@ -704,3 +704,7 @@ Every contribution—no matter the size—makes a meaningful difference. Thank y
 <p align="center">
   <a href="#-table-of-contents">Back to Top ↑</a>
 </p>
+
+## Freelance & Client Docs
+
+- [Client Close Kit](https://darweesh128-cmd.github.io/client-close-kit/) - Free browser-only freelance tools: invoice, quote, delivery note, work order, receipt, SOW, and more (MIT, no signup).
